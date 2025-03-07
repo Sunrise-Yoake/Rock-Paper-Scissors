@@ -1,18 +1,22 @@
-function getComputerChoice() {
-  const randomNumber = Math.random(); 
-  
-  if (randomNumber < 0.33) {
-    return "камень";
-  } else if (randomNumber < 0.66) {
-    return "бумага";
-  } else {
-    return "ножницы";
-  }
+let humanScore = 0;
+let computerScore = 0;
+
+function generateRandomOpponentMove() {
+  const masChoise = ["камень", "бумага", "ножницы"];
+  const randomNumber = Math.floor(Math.random() * masChoise.length);
+  const computerChoice = masChoise[randomNumber];
+   
+  return computerChoice; 
 }
+  
   
 function getHumanChoice() {
     let humanChoice= prompt("Выберите: камень, бумага или ножницы").toLowerCase();
     return humanChoice;
+}
+
+function playRound(humanChoice,computerChoice){
+
 }
 
   
