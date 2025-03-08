@@ -1,6 +1,8 @@
+//глобальные переменные
 let humanScore = 0;
 let computerScore = 0;
 
+// функция для выбора Компьютера
 function getComputerChoice() {
   const masChoise = ["камень", "бумага", "ножницы"];
   const randomNumber = Math.floor(Math.random() * masChoise.length);
@@ -9,12 +11,13 @@ function getComputerChoice() {
   return computerChoice; 
 }
   
-  
+// функция для выбора Игрока  
 function getHumanChoice() {
     let humanChoice= prompt("Выберите: камень, бумага или ножницы").toLowerCase();
     return humanChoice;
 }
 
+// один раунд игры
 function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         case "камень":
@@ -46,7 +49,11 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+// полная игра в 5 туров
 function playGame() {
+    // Обнуляем счёт, нада када игрок хочет сыграть ещё раз
+    humanScore = 0;
+    computerScore = 0;
     for (let i = 1; i <= 5; i++) {
         console.log(`Раунд: ${i}:`);   
         const humanChoice = getHumanChoice();
@@ -73,13 +80,19 @@ function playGame() {
     } else {
         console.log("Ничья!");
     }
+    playAgain();
 }
 
+// предложение сыграть снова(Я В ЭТИ ИГРЫ УЖЕ ИГРАЛ!!!)
+function playAgain() {
+    const playAgainResponse = prompt("Хотите сыграть снова? (да/нет)").toLowerCase();
+
+    if (playAgainResponse === "да") {
+        playGame(); 
+    } else {
+        console.log("Спасибо за игру! До свидания:3");
+    }
+}
+
+//Вызов функции
 playGame();
-
-  
-
-
-
- 
-  
