@@ -51,9 +51,6 @@ function playRound(humanChoice, computerChoice) {
 
 // полная игра в 5 туров
 function playGame() {
-    // Обнуляем счёт, нада када игрок хочет сыграть ещё раз
-    humanScore = 0;
-    computerScore = 0;
     for (let i = 1; i <= 5; i++) {
         console.log(`Раунд: ${i}:`);   
         const humanChoice = getHumanChoice();
@@ -63,11 +60,11 @@ function playGame() {
         console.log(`Компьютер выбрал: ${computerChoice}`);
         const result = playRound(humanChoice, computerChoice); 
         console.log(result);
-        
+        //постинкримент поменяла на инкримент
         if (result.includes("Вы победили")) {
-            humanScore++;
+            ++humanScore;
         } else if (result.includes("Вы проиграли")) {
-            computerScore++;
+            ++computerScore;
         }
     }
 
@@ -88,6 +85,9 @@ function playAgain() {
     const playAgainResponse = prompt("Хотите сыграть снова? (да/нет)").toLowerCase();
 
     if (playAgainResponse === "да") {
+        // Обнуляем счёт, нада када игрок хочет сыграть ещё раз
+        humanScore = 0;
+        computerScore = 0;
         playGame(); 
     } else {
         console.log("Спасибо за игру! До свидания:3");
